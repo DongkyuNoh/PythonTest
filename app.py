@@ -11,11 +11,10 @@ latest_country_sum = latestDf.groupby('Country/Region')['Confirmed','Deaths','Re
 latest_country_sum = latest_country_sum.sort_values(by='Confirmed', ascending=False).reset_index(drop=True)
 st.dataframe(data=latest_country_sum)
 
-st.write("##시간에 따른 확진자, 사망자, 회복자 시각화")
+st.title("시간에 따른 확진자, 사망자, 회복자 시각화")
 
 date_status = coronaDf.groupby('Date')['Confirmed','Deaths','Recovered'].sum()
 date_status.sort_index()
 
 st.line_chart(data=date_status)
-# st.dataframe(data = coronaDf)
 
